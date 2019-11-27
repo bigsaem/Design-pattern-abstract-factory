@@ -10,7 +10,6 @@
 class maze_game {
 public:
     maze_game()=default;
-    ~maze_game();
     maze* create_maze(maze_factory &factory);
 };
 

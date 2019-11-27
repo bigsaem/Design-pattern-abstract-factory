@@ -26,7 +26,7 @@ public:
     }
     vector<room*> getRoom(){return roomVec;};
     virtual void print()=0;
-    ~maze(){
+    virtual ~maze(){
         for (std::vector<room*>::iterator ptr = roomVec.begin(); ptr < roomVec.end(); ptr++){
             delete(*ptr);
         }
@@ -56,6 +56,18 @@ public:
             (*ptr)->print();
         }
     }
+    ~enchanted_maze(){
+        for (std::vector<room*>::iterator ptr = roomVec.begin(); ptr < roomVec.end(); ptr++){
+            delete(*ptr);
+        }
+        for (std::vector<wall*>::iterator ptr = wallVec.begin(); ptr < wallVec.end(); ptr++){
+            delete(*ptr);
+        }
+        for (std::vector<door*>::iterator ptr = doorVec.begin(); ptr < doorVec.end(); ptr++){
+            delete(*ptr);
+        }
+        cout<<"enchanted maze destructed"<<endl;
+    }
 };
 class distopian_maze: public maze{
 public:
@@ -72,6 +84,18 @@ public:
         for (std::vector<door*>::iterator ptr = doorVec.begin(); ptr < doorVec.end(); ptr++){
             (*ptr)->print();
         }
+    }
+    ~distopian_maze(){
+        for (std::vector<room*>::iterator ptr = roomVec.begin(); ptr < roomVec.end(); ptr++){
+            delete(*ptr);
+        }
+        for (std::vector<wall*>::iterator ptr = wallVec.begin(); ptr < wallVec.end(); ptr++){
+            delete(*ptr);
+        }
+        for (std::vector<door*>::iterator ptr = doorVec.begin(); ptr < doorVec.end(); ptr++){
+            delete(*ptr);
+        }
+        cout<<"distopian maze destructed"<<endl;
     }
 };
 #endif //LAB9_MAZE_HPP

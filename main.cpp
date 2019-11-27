@@ -6,5 +6,6 @@ int main() {
     maze_game mazeGame;
     maze* newMaze = mazeGame.create_maze(eFactory);
     newMaze->print();
+    delete(newMaze);
     return 0;
 }
